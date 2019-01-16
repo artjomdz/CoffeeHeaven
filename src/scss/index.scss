@@ -1,0 +1,91 @@
+@import 'colors';
+
+$desktop: 840px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  background-color: black;
+  background-image: url('/img/coffee-photo.jpg');
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  @include desktop {
+    flex-direction: row;
+  }
+
+  #empty {
+    height: 30%;
+    width: 100%;
+    @include desktop {
+      height: 100%;
+      width: 60%;
+    }
+  
+  }
+
+  #info-box {
+    display: flex;
+    flex-direction: column;
+    color: $text-color;
+    height: 60%;
+    justify-content: center;
+    margin: 0 1.4em;
+    text-align: center;
+    margin: 1em 2em;
+    background: rgba(0,0,0,.7);
+    border-radius: 1em;
+    @include desktop {
+      margin: 0;
+      height: 100%;
+      width: 40%;
+    }
+
+    h1 {
+      font-size: 2em;
+      line-height: 1.2em;
+      @include desktop {
+        font-size: 3em;
+      }
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 0em 1em 2em 1em;
+    }
+
+    button {
+      background-color: $bg-secondary;
+      text-decoration: none;
+      color: $text-color;
+      border-radius: 0.4em;
+      width: 50%;
+      margin: 0 auto;
+      font-size: 0.9em;
+      height: 10%;
+      outline: 0;
+      border: 1px grey solid; 
+    }
+  }
+}
+
+
